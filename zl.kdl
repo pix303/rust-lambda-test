@@ -1,0 +1,6 @@
+layout{
+	pane split_direction="vertical"{
+		pane name="cmd" size="30%"
+		pane name="hx" size="70%" command="helix" args="."
+	}
+}

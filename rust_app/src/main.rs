@@ -1,10 +1,19 @@
-use axum::routing::get;
-use axum::Router;
-use axum::{http::StatusCode, response::Json};
+use axum::{http::StatusCode, response::Json, routing::get, Router};
 use lambda_http::{run, Error};
 use serde::{Deserialize, Serialize};
-use serde_json::{json, Value};
 use std::env::set_var;
+
+#[derive(Serialize, Deserialize)]
+struct WelcomeResponse {
+    status: String,
+    msg: String,
+}
+async fn welcome_handler() -> Json<WelcomeResponse> {
+    Json(WelcomeResponse {
+        status: StatusCode::OK.to_string(),
+        msg: "Welcome to Rust Rest Api".to_string(),
+    })
+}
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -19,18 +28,6 @@ async fn main() -> Result<(), Error> {
 
     let app = Router::new()
         .route("/", get(welcome_handler))
-        .route("/welcome", get(welcome_handler));
+        .route("/welcome/", get(welcome_handler));
     run(app).await
-}
-
-#[derive(Serialize, Deserialize)]
-struct WelcomeResponse {
-    status: u16,
-    msg: String,
-}
-async fn welcome_handler() -> Json<WelcomeResponse> {
-    Json(WelcomeResponse {
-        status: 200,
-        msg: "hey man".to_string(),
-    })
 }

@@ -10,37 +10,37 @@ Globals:
     Timeout: 3
     MemorySize: 128
 Resources:
-  HelloWorldFunction:
+  WelcomeFunction:
     Type: AWS::Serverless::Function
     Metadata:
       BuildMethod: rust-cargolambda
-      SamResourceId: HelloWorldFunction
+      SamResourceId: WelcomeFunction
     Properties:
-      CodeUri: HelloWorldFunction
+      CodeUri: ../cache/fed4520b-8f2e-47ba-bd29-f2dead8c51db
       Handler: bootstrap
       Runtime: provided.al2023
       Architectures:
       - x86_64
       Events:
-        HelloWorld:
+        Welcome:
           Type: Api
           Properties:
-            Path: /v1
+            Path: /welcome
             Method: get
 Outputs:
-  HelloWorldApi:
+  WelcomeApi:
     Description: API Gateway endpoint URL for Prod stage for Hello World function
     Value:
       Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/v1/
-  HelloWorldFunction:
+  WelcomeFunction:
     Description: Hello World Lambda Function ARN
     Value:
       Fn::GetAtt:
-      - HelloWorldFunction
+      - WelcomeFunction
       - Arn
-  HelloWorldFunctionIamRole:
+  WelcomeFunctionIamRole:
     Description: Implicit IAM Role created for Hello World function
     Value:
       Fn::GetAtt:
-      - HelloWorldFunctionRole
+      - WelcomeFunctionIamRole
       - Arn

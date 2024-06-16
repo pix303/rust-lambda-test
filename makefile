@@ -12,8 +12,13 @@ run: build start
 
 invoke: 
 	@echo "-----------------------------------"
-	@echo "invoke lambda locally"
-	curl http://localhost:3000/v1/
-	curl http://localhost:3000/v1/welcome/
+	@echo "invoke lambda test root"
+	@echo "-----------------------------------"
+	sam local invoke WelcomeFunction --event ./events/test-root.json
+	@echo ""
+	@echo "-----------------------------------"
+	@echo "invoke lambda test welcome"
+	@echo "-----------------------------------"
+	sam local invoke WelcomeFunction --event ./events/test-welcome.json
 
 .PHONY: build start invoke run

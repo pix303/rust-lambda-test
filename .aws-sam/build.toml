@@ -5,10 +5,10 @@ codeuri = "/home/paolo.carraro/workspace/rust/rust-lambda-test/rust_app"
 runtime = "provided.al2023"
 architecture = "x86_64"
 handler = "bootstrap"
-source_hash = "7849701d9ec4b889680f397404369dfb1436385cda7161eb207d346496373924"
+source_hash = "5083f07c9c6daee4f26f4c347f420a1ccf356b8879293857df42076f933b435f"
 manifest_hash = ""
 packagetype = "Zip"
-functions = ["HelloWorldFunction"]
+functions = ["WelcomeFunction"]
 
 [function_build_definitions.fed4520b-8f2e-47ba-bd29-f2dead8c51db.metadata]
 BuildMethod = "rust-cargolambda"
