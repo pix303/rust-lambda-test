@@ -2,7 +2,7 @@
   "type": "REQUEST",
   "methodArn": "arn:aws:execute-api:us-east-1:123456789012:/test/GET/request",
   "resource": "/request",
-  "path": "/welcome/",
+  "path": "/welcome",
   "httpMethod": "GET",
   "headers": {
     "X-AMZ-Date": "20170718T062915Z",
@@ -22,7 +22,7 @@
     "StageVar1": "stageValue1"
   },
   "requestContext": {
-    "path": "/welcome/",
+    "path": "/welcome",
     "accountId": "123456789012",
     "resourceId": "05c7jb",
     "stage": "test",
@@ -41,7 +41,7 @@
         }
       }
     },
-    "resourcePath": "/welcome/",
+    "resourcePath": "/welcome",
     "httpMethod": "GET",
     "apiId": ""
   }
